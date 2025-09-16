@@ -1,6 +1,14 @@
 <div class="navbar bg-base-100 shadow-sm">
-    <div class="flex-1">
+    <img class="w-15" alt="phw-logo" src="/images/phw_logo.svg" />
+    <div class="flex">
         <a class="text-xl">Pure Home Waters</a>
+    </div>
+    <div role="tablist" class="tabs tabs-border justify-center flex-1">
+        @for (tab of tabs; track $index) {
+        <a role="tab" class="tab text-primary" [routerLink]="tab.route" [routerLinkActive]="['tab-active']">
+            {{ tab.label }}
+        </a>
+        }
     </div>
     <div class="flex gap-2 items-center">
         <h3>Welcome, {{ userDetails().displayName | titlecase }}</h3>
@@ -19,14 +27,6 @@
     </div>
 </div>
 
-<div role="tablist" class="tabs tabs-border justify-center">
-    @for (tab of tabs; track $index) {
-    <a role="tab" class="tab text-primary" [routerLink]="tab.route" [routerLinkActive]="['tab-active']">
-        {{ tab.label }}
-    </a>
-    }
-</div>
-
-<div class="flex justify-center p-4">
+<div class="flex justify-center p-5">
     <ng-content></ng-content>
 </div>
