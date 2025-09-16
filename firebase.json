@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/phw-manage",
+    "public": "dist/phw-manage/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
