@@ -26,6 +26,7 @@ export class Layout {
       label: 'Inventory', route: '/inventory'
     }
   ];
+  fullYear: number = new Date().getFullYear();
 
   constructor(private router: Router) { }
 
