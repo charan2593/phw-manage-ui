@@ -2,8 +2,6 @@ import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Layout } from './components/layout/layout';
 import { Login } from './pages/login/login';
-import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
-import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +10,11 @@ import { addDoc, collection, collectionData, Firestore } from '@angular/fire/fir
   styleUrl: './app.css'
 })
 export class App implements OnInit, OnDestroy {
-  auth = inject(Auth);
   user: any;
-  firestore = inject(Firestore);
   isLoading = signal(false);
   timeoutId: any;
 
   constructor() {
-    this.auth.onAuthStateChanged(u => this.user = u);
   }
 
   ngOnInit(): void {
@@ -32,19 +27,7 @@ export class App implements OnInit, OnDestroy {
     this.timeoutId && clearTimeout(this.timeoutId);
   }
 
-  async login() {
-    await signInWithPopup(this.auth, new GoogleAuthProvider());
-  }
-
-  // Add data
-  // async addItem() {
-  //   await addDoc(collection(this.firestore, 'items'), { name: 'Test', createdAt: new Date() });
-  // }
-
-  // Get data
-  // getItems() {
-  //   collectionData(collection(this.firestore, 'items')).subscribe(data => {
-  //     console.log(data);
-  //   });
+  // async login() {
+  //   await signInWithPopup(this.auth, new GoogleAuthProvider());
   // }
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "phw-manage": {
+    "phw-manage-ui": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -22,7 +22,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.css"
@@ -62,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "phw-manage:build:production"
+              "buildTarget": "phw-manage-ui:build:production"
             },
             "development": {
-              "buildTarget": "phw-manage:build:development"
+              "buildTarget": "phw-manage-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
