@@ -43,6 +43,6 @@ jobs:
           server: ${{ secrets.HOSTINGER_FTP_HOST }}
           username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: "dist/"
+          local-dir: "dist/phw-manage-ui/browser"
           server-dir: ${{ secrets.HOSTINGER_FTP_PATH }}
           dangerous-clean-slate: true

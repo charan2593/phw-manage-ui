@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { delay, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: Auth) { }
-
-  // Sign up new user
-  register(email: string, password: string) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
-  }
-
+  constructor() { }
   // Login existing user
   login(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return of(true).pipe(delay(1000)).toPromise(); // Mocking login for demo purposes
   }
 
   // Logout
   logout() {
-    return signOut(this.auth);
+    return true;
   }
 }
